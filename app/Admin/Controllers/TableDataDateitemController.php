@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\TableData;
+use App\Models\TableDataDateitem;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -12,7 +12,7 @@ use Encore\Admin\Controllers\ModelForm;
 
 
 
-class TableDataController extends Controller
+class TableDataDateitemController extends Controller
 {
     use ModelForm;
 
@@ -72,15 +72,24 @@ class TableDataController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(TableData::class, function (Grid $grid) {
+        return Admin::grid(TableDataDateitem::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->title('标题');
-            $grid->user_id('用户ID');
             $grid->tdd_id('（外健）最新的一期');
-            $grid->f_name_string('表格列标题');
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->title('标题');
+
+            $grid->f1();
+            $grid->f2();
+            $grid->f3();
+            $grid->f4();
+            $grid->f5();
+            $grid->f6();
+            $grid->f7();
+            $grid->f8();
+            $grid->f9();
+            $grid->f10();
+
+
         });
     }
 
@@ -91,15 +100,23 @@ class TableDataController extends Controller
      */
     protected function form()
     {
-        return Admin::form(TableData::class, function (Form $form) {
+        return Admin::form(TableDataDateitem::class, function (Form $form) {
 
             $form->display('id', 'ID');
+            $form->number('tdd_id', '用户ID');
             $form->text('title', '标题');
-            $form->number('user_id', '用户ID');
-            $form->number('tdd_id', '（外健）最新的一期');
-            $form->text('f_name_string', '表格列标题');
-            $form->dateTime('created_at', '创建时间');
-            $form->dateTime('updated_at', '修改时间');
+
+            $form->text('f1', 'f1');
+            $form->text('f2', 'f2');
+            $form->text('f3', 'f3');
+            $form->text('f4', 'f4');
+            $form->text('f5', 'f5');
+            $form->text('f6', 'f6');
+            $form->text('f7', 'f7');
+            $form->text('f8', 'f8');
+            $form->text('f9', 'f9');
+            $form->text('f10', 'f10');
+
         });
     }
 }

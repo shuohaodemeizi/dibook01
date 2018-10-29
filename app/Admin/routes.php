@@ -12,4 +12,9 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
 
+    $router->resource('/table_data', 'TableDataController');//含：index,create,store,show,edit,update,destroy //https://laravel.com/docs/5.0/controllers#implicit-controllers
+    $router->resource('/table_data_date', 'TableDataDateController');
+    $router->resource('/table_data_dateitem', 'TableDataDateitemController');
+
+
 });

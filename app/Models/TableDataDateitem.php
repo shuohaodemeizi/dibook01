@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TableData extends Model
+class TableDataDateitem extends Model
 {
-    protected $table='table_data';
+    protected $table='table_data_dateitem';
 
     protected $connection = 'mysql';
 

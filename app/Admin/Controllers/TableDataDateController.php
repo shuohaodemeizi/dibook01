@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\TableData;
+use App\Models\TableDataDate;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -12,7 +12,7 @@ use Encore\Admin\Controllers\ModelForm;
 
 
 
-class TableDataController extends Controller
+class TableDataDateController extends Controller
 {
     use ModelForm;
 
@@ -72,15 +72,14 @@ class TableDataController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(TableData::class, function (Grid $grid) {
+        return Admin::grid(TableDataDate::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->title('标题');
-            $grid->user_id('用户ID');
-            $grid->tdd_id('（外健）最新的一期');
-            $grid->f_name_string('表格列标题');
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->date('最新一期时间');
+            $grid->td_id('外健');
+
+            //$grid->created_at();
+            //$grid->updated_at();
         });
     }
 
@@ -91,15 +90,11 @@ class TableDataController extends Controller
      */
     protected function form()
     {
-        return Admin::form(TableData::class, function (Form $form) {
+        return Admin::form(TableDataDate::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('title', '标题');
-            $form->number('user_id', '用户ID');
-            $form->number('tdd_id', '（外健）最新的一期');
-            $form->text('f_name_string', '表格列标题');
-            $form->dateTime('created_at', '创建时间');
-            $form->dateTime('updated_at', '修改时间');
+            $form->number('td_id', '（外健）最新的一期');
+            $form->dateTime('date', '修改时间');
         });
     }
 }
