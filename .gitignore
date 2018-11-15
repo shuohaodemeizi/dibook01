@@ -1,0 +1,6 @@
+/vendor
+*.html
+*.copy
+*.test.php
+.env
+.env-copy
