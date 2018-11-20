@@ -84,7 +84,7 @@ class doiphone7 extends Command
                 $data = QueryList::setHtml($html)
                     ->find('img')->attrs('src');
                 print_r($data->all());*/
-                $html = self::getHtmlUseJs($url);
+                $html = self::getHtmlUseJs($url);if(is_numeric($html))return;
                 $html = '<html>'.$html.'<html>';// 苏宁奇怪的没有html //var_dump(substr($html,0,1000));//$html = file_get_contents('xr55.html');
                 $obj = QueryList::setHtml($html);
                 $price = $obj->find('#juprice')->texts();
@@ -94,10 +94,10 @@ class doiphone7 extends Command
                 break;
             case strpos($url,'apple.com')!==false:
                 // 代理没处理，只能在服务上请求
-                //$html = self::getHtmlUseJs($url);
+                $html = self::getHtmlUseJs($url);
                 //file_put_contents('apple.html',$html);
-                $html = file_get_contents('apple.html');
-                $obj = QueryList::setHtml($html);
+                //$html = file_get_contents('apple.html');
+                $obj = QueryList::setHtml($html);if(is_numeric($html))return;
                 $prices = $obj->find('.price-point-fullPrice-short')->texts()->toArray();
                 $gbs = $obj->find('.as-dimension-capacity-text')->texts()->toArray();
                 foreach ($gbs as $k=>$gb) {
@@ -134,7 +134,7 @@ class doiphone7 extends Command
             var_dump($response->getContent());// $response->getContent();
         }else{
             var_dump($response->getStatus());
-            die();
+            //die();
         }
     }
 
