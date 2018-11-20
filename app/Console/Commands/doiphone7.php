@@ -61,6 +61,9 @@ class doiphone7 extends Command
                     $pi->date = $td;
                     $pi->number = intval(str_replace(['¥','HK','$',','],'',$price[0]['price']));
                     $pi->save();
+                }else{
+                    echo 'price';
+                    var_dump($price);
                 }
             }
         }
@@ -133,7 +136,7 @@ class doiphone7 extends Command
             return $response->getContent();
             var_dump($response->getContent());// $response->getContent();
         }else{
-            var_dump($response->getStatus());
+            return $response->getStatus();
             //die();
         }
     }
