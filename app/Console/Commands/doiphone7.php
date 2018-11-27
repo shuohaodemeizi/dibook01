@@ -87,7 +87,7 @@ class doiphone7 extends Command
                 $data = QueryList::setHtml($html)
                     ->find('img')->attrs('src');
                 print_r($data->all());*/
-                $html = self::getHtmlUseJs($url);if(is_numeric($html))return;
+                $html = self::getHtmlUseJs($url);//if(is_numeric($html))return;
                 $html = '<html>'.$html.'<html>';// 苏宁奇怪的没有html //var_dump(substr($html,0,1000));//$html = file_get_contents('xr55.html');
                 $obj = QueryList::setHtml($html);
                 $price = $obj->find('#juprice')->texts();
@@ -134,7 +134,7 @@ class doiphone7 extends Command
 
         if($response->getStatus() === 200) {
             return $response->getContent();
-            var_dump($response->getContent());// $response->getContent();
+            //var_dump($response->getContent());// $response->getContent();
         }else{
             return $response->getStatus();
             //die();

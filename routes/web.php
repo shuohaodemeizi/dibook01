@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-
-    return 'home';
-});
+//Route::get('/', function () {
+//    //return view('welcome');
+//
+//    return 'home';
+//});

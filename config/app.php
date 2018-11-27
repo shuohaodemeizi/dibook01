@@ -160,6 +160,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //跨域扩展 1/3// 去掉也是可以
+        Barryvdh\Cors\ServiceProvider::class,
+
     ],
 
     /*
