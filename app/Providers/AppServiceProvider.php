@@ -14,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ini_set('memory_limit','512M');
         //
         Schema::defaultStringLength(191);
     }
