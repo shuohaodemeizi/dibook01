@@ -36,7 +36,7 @@ class ChinaPopulation
 
         $arr = Cache::remember('chinaPopulation', 1, $comfunc);
 
-        return [$arr,$cache];
+        return [$arr,$cache,'',''];
     }
 
 }

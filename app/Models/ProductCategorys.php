@@ -14,4 +14,10 @@ class ProductCategorys extends Model
 
     //public $hidden = ['created_at','updated_at'];
 
+    public function products()
+    {
+        return $this->belongsToMany("App\Models\Products",'product_to_category','category_id','product_id','id','id');
+
+    }
+
 }

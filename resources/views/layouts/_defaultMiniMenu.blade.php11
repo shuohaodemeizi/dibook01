@@ -1,0 +1,38 @@
+<div class="sideBox">
+    <ul class="nav navbar-nav pt-20">
+        <li><a href="/">首页</a></li>
+        <li class="dropDown dropDown_hover">
+            <a href="javascript:;" class="dropDown_A">分类 <i class="Hui-iconfont">&#xe6d5;</i></a>
+            <ul class="dropDown-menu menu radius box-shadow">
+                @isset($common_categorys)
+                @foreach($common_categorys as $cate)
+                    <li>
+                        <a href="/c/{{$cate->id}}.html" target="_blank">{{$cate->name}}</a>
+                    </li>
+                @endforeach
+                @endisset
+            </ul>
+        </li>
+        <li><a href="/s/">搜索</a></li>
+        <li><a href="/">关于我们</a></li>
+        <dl id="menu_notes">
+            <dt class="">&nbsp;&nbsp;&nbsp;&nbsp;注释<i class="Hui-iconfont menu_dropdown-arrow"></i></dt>
+            <dd style="display: none;">
+                <ul>
+                    <li><a href="Hui-notes-htmlStructure.shtml">Html书写规范</a></li>
+                    <li><a href="Hui-notes-css.shtml">CSS写作注意事项</a></li>
+                    <li><a href="Hui-notes-cnFont.shtml">中文字体css编码转换</a></li>
+                    <li><a href="Hui-notes-cssHack.shtml">CSS Hack</a></li>
+                    <li><a href="Hui-notes-keycode.shtml">键盘按钮keycode</a></li>
+                    <li><a href="Hui-notes-ARIA.shtml">ARIA属性值</a></li>
+                    <li><a href="Hui-notes-cssHame.shtml">css 命名规范</a></li>
+                    <li><a href="Hui-notes-htmlName.shtml">html命名规范</a></li>
+                    <li><a href="Hui-notes-fileName.shtml">文件夹命名规范</a></li>
+                    <li><a href="Hui-notes-regular.shtml">常用正则表达式</a></li>
+                    <li><a href="Hui-notes-csscursor.shtml">css中cursor(光标类型)</a></li>
+                    <li><a href="Hui-notes-EDM.shtml">EDM制作规范</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </ul>
+</div>

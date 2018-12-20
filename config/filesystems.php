@@ -48,6 +48,14 @@ return [
             'root' => storage_path('app'),
         ],
 
+        // ln -s storage/app/ public/storage/img
+        'admin' => [
+            'driver' => 'local',
+            'root' => storage_path('app').'/'.date('Y').'/'.date('m').'/'.date('d'),
+            'visibility' => 'public',
+            'url' => env('APP_URL').'/img/',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

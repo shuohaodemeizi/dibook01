@@ -25,4 +25,23 @@ class Products extends Model
 
     }
 
+    // 相关文章
+    public function products()
+    {
+        return $this->belongsToMany("App\Models\Products",'product_to_product','product_id','to_product_id','id','id');
+
+    }
+    public function setImagesAttribute($images)
+    {
+        if (is_array($images)) {
+            $this->attributes['images'] = json_encode($images);
+        }
+    }
+
+    public function getImagesAttribute($images)
+    {
+        return json_decode($images, true);
+    }
+
+
 }

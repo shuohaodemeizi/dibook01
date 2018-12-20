@@ -10,7 +10,7 @@ class ProductToCategory extends Model
 
     protected $connection = 'mysql';
 
-    public $timestamps = true;
+    public $timestamps = false;
 
     //public $hidden = ['created_at','updated_at'];
 

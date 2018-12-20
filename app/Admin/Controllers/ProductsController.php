@@ -123,11 +123,15 @@ class ProductsController extends Controller
             $form->display('id', 'ID');
             $form->text('name', '标题');
             //$form->text('tags', '标签');
+
+            $form->select('type')->options([''=>'默认','article'=>'文章','link'=>'外链','code'=>'代码']);
+            $form->multipleImage('images', '多图片');
             $form->dateTime('created_at', '创建时间');
             $form->dateTime('updated_at', '修改时间');
             // 可以多选下拉框
             $form->multipleSelect('categorys','分类')->options(ProductCategorys::all()->pluck('name', 'id'));
             $form->multipleSelect('tags','标签')->options(ProductTags::all()->pluck('name', 'id'));
+            $form->multipleSelect('products','相关文章')->options(Products::all()->pluck('name', 'id'));
 
             $states = [
                 '1' => ['value' => 1, 'text' => '打开', 'color' => 'success'],
