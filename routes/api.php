@@ -34,6 +34,9 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::get('/search/{keywords}', 'IndexController@search')->where('keywords', '\d+');
 
+    // 物品归类 API
+    Route::get('/garbages', 'GarbagesController@index');
+    Route::get('/garbages/hot', 'GarbagesController@hot');
 
 });
 

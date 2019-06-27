@@ -21,5 +21,6 @@ Route::group([
 
     $router->resource('/topics', 'TopicsController');
 
+    $router->resource('/garbages', 'GarbagesController');
 
 });
