@@ -48,6 +48,11 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'storage' => [
+            'driver' => 'local',
+            'root' => storage_path(''),
+        ],
+
         // ln -s storage/app/ public/storage/img
         'admin' => [
             'driver' => 'local',

@@ -68,6 +68,20 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+        'mysql_ts300' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_TS300', '127.0.0.1'),
+            'port' => env('DB_PORT_TS300', '3306'),
+            'database' => env('DB_DATABASE_TS300', 'forge'),
+            'username' => env('DB_USERNAME_TS300', 'forge'),
+            'password' => env('DB_PASSWORD_TS300', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
