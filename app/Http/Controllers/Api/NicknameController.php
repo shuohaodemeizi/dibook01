@@ -47,6 +47,7 @@ class NicknameController extends Controller
             '2'=>'App\Models\TsLunyu', //论语
             '3'=>'App\Models\TsPoems', //唐诗
             '4'=>'App\Models\TsPoetry',
+            '5'=>'App\Models\TsShijing',
         ];
 
         $classname = $typeobj[$type];
