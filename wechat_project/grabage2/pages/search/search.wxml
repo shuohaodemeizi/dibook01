@@ -1,0 +1,7 @@
+<view class="section">
+  <input placeholder="输入您要搜索的内容"  focus="{{focus}}" confirm-type="search"/>
+  <button bindgetuserinfo="getSearchList" open-type="getUserInfo" >搜索</button>
+</view>
+
+
+<view class="section__title">热门搜索</view>

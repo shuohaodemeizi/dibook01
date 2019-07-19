@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/storage/Nickname_generator1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/storage/chinese-poetry" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/storage/nickname_generator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/wechat_project/garbage" vcs="Git" />
   </component>
 </project>
