@@ -37,6 +37,8 @@ Route::group(['namespace' => 'Api'], function () {
     // 物品归类 API
     Route::get('/garbages', 'GarbagesController@index');
     Route::get('/garbages/hot', 'GarbagesController@hot');
+    // 随机昵称
+    Route::get('/nickname', 'NicknameController@index');
 
 });
 
