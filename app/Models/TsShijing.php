@@ -28,7 +28,7 @@ class TsShijing extends Model
             $nickname = array_values($nickname);//关联数组变序列数组
             if(empty($nickname)) continue;
             $nickname = $nickname[rand(0,count($nickname)-1)];
-            $res[] = ['nickname'=>$nickname,'chapter'=>'《'.$info->chapter.'》'];
+            $res[] = ['nickname'=>$nickname,'chapter'=>'《'.$info->title.'》'];
         }
         return $res;
     }
