@@ -14,8 +14,9 @@ class TsPoetry extends Model
 
     //public $hidden = ['created_at','updated_at'];
 
-    public function generateNickname($num)
+    public function generateNickname($search)
     {
+        $num = $search['num'];
         $list = self::whereRaw("id >= (select floor(max(id)*RAND()) from {$this->table})")->limit($num)->get();
         foreach ($list as $k=>$info) {
             preg_match_all('/[\x{4e00}-\x{9fa5}]+/u', $info->content,$nickname);

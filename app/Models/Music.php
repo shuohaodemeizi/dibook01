@@ -14,9 +14,19 @@ class Music extends Model
 
     //public $hidden = ['created_at','updated_at'];
 
-    public function generateNickname($num)
+    public function generateNickname($search)
     {
-        $list = self::whereRaw("id >= (select floor(max(id)*RAND()) from {$this->table})")->limit($num)->get();
+        $num = $search['num'];
+        if ($search['singer']) {
+            $obj = self::where('singer',$search['singer']);
+        }
+        elseif ($search['music_name']) {
+            $obj = self::where('name',$search['music_name']);
+        }else{
+            $obj = self::whereRaw("id >= (select floor(max(id)*RAND()) from {$this->table})");
+        }
+
+        $list = $obj->limit($num)->get();
 
         foreach ($list as $k=>$info) {
             preg_match_all('/[\x{4e00}-\x{9fa5}]+/u', $info->lyric,$nickname);

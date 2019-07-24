@@ -14,8 +14,9 @@ class TsLunyu extends Model
 
     //public $hidden = ['created_at','updated_at'];
 
-    public function generateNickname($num)
+    public function generateNickname($search)
     {
+        $num = $search['num'];
         //$maxid = TsLunyu::orderby('id','DESC')->pluck('id')->first();
         // 有一个脚本，把这些都跑出来在一个库里面，
         // 之后再随机获取

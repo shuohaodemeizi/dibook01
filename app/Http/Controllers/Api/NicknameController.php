@@ -40,6 +40,9 @@ class NicknameController extends Controller
         $type = $request->input('type', '1');
         $page = $request->input('page',1);
         $limit = $request->input('limit',20);
+        $singer = $request->input('singer','');
+        $music_name = $request->input('music_name','');
+
         $offset = ($page-1)* $limit;
 
         $typeobj = [
@@ -53,7 +56,7 @@ class NicknameController extends Controller
 
         $classname = $typeobj[$type];
         $obj = new $classname();
-        $list = $obj->generateNickname($num = 10);
+        $list = $obj->generateNickname(['num' => 10,'singer'=>$singer,'music_name'=>$music_name]);
 
         return $this->mobile_response(200,['list'=>$list],'随机昵称');
     }
