@@ -73,18 +73,23 @@ class IndexController extends Controller
         $offset = ($page-1) * $limit;
         $category_id = $category_id<1?1:$category_id;
 
-        //DB::connection()->enableQueryLog();
-        $list = Products::select('id','type','name','url','updated_at','callfunc')
-            ->whereHas('categorys',function($query)use($category_id){
-                $query->select(['name'])->where('product_to_category.category_id',$category_id);
-            })
-            ->with(['tags'=>function($query){
-                //$query->select(['name']);
-            }])
+        $list = ProductCategorys::with('categorys')->with('products')->find($category_id);
 
-            ->where('is_show',1)
-            ->orderBy('id','DESC')
-            ->paginate(5);
+        // $child_ids = ProductCategorys::where('pid',$category_id)->pluck('id')->toArray();
+        //
+        // //DB::connection()->enableQueryLog();
+        // $list = Products::select('id','type','name','url','updated_at','callfunc')
+        //     ->whereHas('categorys',function($query)use($child_ids){
+        //         $query->select(['name'])->whereIn('product_to_category.category_id',$child_ids);
+        //     })
+        //     ->with(['tags'=>function($query){
+        //         //$query->select(['name']);
+        //     }])
+        //     ->with('categorys')
+        //
+        //     ->where('is_show',1)
+        //     ->orderBy('id','DESC')
+        //     ->paginate(200);
         //var_dump($list->links());exit;
         //var_dump(DB::getQueryLog());
         $category = ProductCategorys::find($category_id);

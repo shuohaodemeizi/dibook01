@@ -81,7 +81,7 @@ class ProductsController extends Controller
     {
         return Admin::grid(Products::class, function (Grid $grid) {
 
-            $grid->id('ID')->sortable();
+            $grid->id('ID')->sortable('DESC');
             $grid->name('标题');
             //$grid->tags('标签');
 
@@ -125,6 +125,7 @@ class ProductsController extends Controller
             //$form->text('tags', '标签');
 
             $form->select('type')->options([''=>'默认','article'=>'文章','link'=>'外链','code'=>'代码']);
+            $form->text('url','外链地址');
             $form->multipleImage('images', '多图片');
             $form->dateTime('created_at', '创建时间');
             $form->dateTime('updated_at', '修改时间');

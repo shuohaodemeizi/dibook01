@@ -6,30 +6,27 @@
 @section('privateContent')
 
 
-    @foreach($list as $info)
-        <li><div class="so-header">
-                <a href="/p/{{$info->id}}.html" target="_blank" title="{{$info->name}}">{{$info->name}}</a>
-            </div>
-            <div class="so-body">
-                <div class="so-cont">
-                </div>
-            </div>
-            <div class="so-footer">
-                <span class="pull-left">最后更新日期：{{$info->updated_at}}</span>
+<ul id="Huifold1" class="Huifold1111111">
+    @foreach($list->categorys as $info)
+          <li class="item">
+            <h4>{{$info->name}}<b>+</b></h4>
+            <div class="info" >
+                @foreach($info->products as $product)
+                  <a href="{{$product->url}}" target="_blank" title="{{$product->name}}">{{$product->name}}</a> <br>
 
-                @isset($info->tags)
-                @foreach($info->tags as $tag)
-                    <span class="pull-right"><a href="/t/{{$tag->id}}.html" class=" badge badge-secondary radius">{{$tag->name}}</a></span>
+                  @isset($product->tags)
+                  @foreach($product->tags as $tag)
+                      <span class="pull-right"><a href="/t/{{$tag->id}}.html" class=" badge badge-secondary radius">{{$tag->name}}</a></span>
+                  @endforeach
+                  @endisset
                 @endforeach
-                @endisset
-
             </div>
-        </li>
-
+          </li>
     @endforeach
+</ul>
 
     <div>
-            {{ $list->links() }}
+            
     </div>
 
 
@@ -38,5 +35,3 @@
 
 @section('privateJs')
 @endsection
-
-
