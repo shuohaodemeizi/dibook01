@@ -22,5 +22,6 @@ Route::group([
     $router->resource('/topics', 'TopicsController');
 
     $router->resource('/garbages', 'GarbagesController');
-
+    // 子分类json接口
+    $router->get('/get_categorys', 'ProductCategorysController@getCategorys');
 });

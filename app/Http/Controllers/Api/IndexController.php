@@ -44,7 +44,7 @@ class IndexController extends Controller
     public function indexView(Request $request)
     {
       // 取所有分类。
-        $list = ProductCategorys::with('categorys')->with('products')->where('is_show',1)->where('pid',0)->get();
+        $list = ProductCategorys::with('categorys')->with('products')->where('is_show',1)->where('pid',0)->orderBy('name','ASC')->get();
 
         if ($request->input('format') == 'json') {
             return ['list'=>$list];
