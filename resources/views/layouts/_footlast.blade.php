@@ -24,7 +24,32 @@
 <script type="text/javascript" src="/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/lib/jquery.validation/1.14.0/messages_zh.min.js"></script>
 
-<script>
+
+<script type="text/javascript">
+    jQuery.Huifold = function(obj,obj_c,speed,obj_type,Event){
+    	if(obj_type == 2){
+    		$(obj+":first").find("b").html("-");
+    		$(obj_c+":first").show()}
+    	$(obj).bind(Event,function(){
+    		if($(this).next().is(":visible")){
+    			if(obj_type == 2){
+    				return false}
+    			else{
+    				$(this).next().slideUp(speed).end().removeClass("selected");
+    				$(this).find("b").html("+")}
+    		}
+    		else{
+    			if(obj_type == 3){
+    				$(this).next().slideDown(speed).end().addClass("selected");
+    				$(this).find("b").html("-")}else{
+    				$(obj_c).slideUp(speed);
+    				$(obj).removeClass("selected");
+    				$(obj).find("b").html("+");
+    				$(this).next().slideDown(speed).end().addClass("selected");
+    				$(this).find("b").html("-")}
+    		}
+    	})}
+
     //弹窗
     function modaldemo(){
         $("#modal-demo").modal("show");
@@ -34,6 +59,14 @@
         $.Huimodalalert('我是消息框，2秒后我自动滚蛋！',2000);
     }
     $(function(){
+        $.Huifold("#Huifold1 .item h4","#Huifold1 .item .info","fast",3,"click"); /*5个参数顺序不可打乱，分别是：相应区,隐藏显示的内容,速度,类型,事件*/
+        /*
+        1	只打开一个，可以全部关闭
+        2	必须有一个打开
+        3	可打开多个
+        */
+
+
         $(".input-text,.textarea").Huifocusblur();
 
         //幻灯片

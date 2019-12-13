@@ -40,10 +40,18 @@ class IndexController extends Controller
         return $this->mobile_response(200,$arr,'pcode');
     }
 
-    // 首页
+    // 首页-接口
     public function indexView(Request $request)
     {
-        return $this->categoryView($request,1);
+      // 取所有分类。
+        $list = ProductCategorys::with('categorys')->with('products')->where('is_show',1)->where('pid',0)->get();
+
+        if ($request->input('format') == 'json') {
+            return ['list'=>$list];
+        }
+        return view('indexV2',['list'=>$list]);
+
+        //return $this->categoryView($request,1);
     }
 
     public function category(Request $request, $category_id)
